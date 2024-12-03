@@ -2,11 +2,9 @@ import re
 
 from Day_3_puzzle_input import PUZZLE_INPUT
 
-test_input = """xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"""
-
 # trim puzzle input first
 
-trim_regex = re.compile(r"(?=don't\(\)).*?(do\(\))|(?=don't\(\)).*", re.I|re.M|re.DOTALL)
+trim_regex = re.compile(r"(?=don't\(\)).*?(do\(\))|(?=don't\(\)).*", re.I|re.M|re.S)
 
 PUZZLE_INPUT = re.sub(trim_regex, "", PUZZLE_INPUT)
 
@@ -21,5 +19,4 @@ for multiplier in multipliers:
     second_digits = int(second_digits)
     result = result + (first_digits * second_digits)
 
-print(PUZZLE_INPUT)
 print(result)
